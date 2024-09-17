@@ -47,6 +47,8 @@ class GeopositionField(models.Field):
         return self.to_python(value)
 
     def get_prep_value(self, value):
+        if value is None:
+            return None
         return str(value)
 
     def value_to_string(self, obj):
