@@ -23,7 +23,7 @@ class GeopositionField(models.Field):
         return 'CharField'
 
     def to_python(self, value):
-        if not value or value == 'None':
+        if not value or value == 'None' or value == '0,0':
             return None
         if isinstance(value, Geoposition):
             return value
